@@ -16,7 +16,7 @@ defmodule Yatzy.Game do
     %Yatzy.Game{game | dice: new_dice, rolls_left: rolls_left - 1}
   end
   def toggle_save(%Yatzy.Game{saved: saved} = game, index) when index in 0..4 do
-    new_saved = List.update_at(saved, index fn val -> not val end)
+    new_saved = List.update_at(saved, index, fn val -> not val end)
     %Yatzy.Game{game | saved: new_saved}
   end
 
