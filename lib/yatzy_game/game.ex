@@ -1,5 +1,5 @@
 defmodule Yatzy.Game do
-  defstructure dice: [0, 0, 0, 0, 0],
+  defstruct dice: [0, 0, 0, 0, 0],
   saved: [false, false, false, false, false],
   rolls_left: 3
 
