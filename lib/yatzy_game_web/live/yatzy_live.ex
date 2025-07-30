@@ -1,8 +1,8 @@
 defmodule YatzyWeb.YatzyLive do
-  use YatzyWeb, :live_view
+  use YatzyGameWeb, :live_view
   alias Yatzy.Game
 
- 
+
   def mount(_params, _session, socket) do
     {:ok, assign(socket, game: Game.new_game())}
   end
