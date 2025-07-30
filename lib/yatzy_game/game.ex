@@ -13,6 +13,14 @@ defmodule Yatzy.Game do
       if Enum.at(saved, idx), do: value, else: :rand.uniform(6)
 
     end)
-    
+    %Yatzy.Game{game | dice: new_dice, rolls_left: rolls_left - 1}
   end
+  def toggle_save(%Yatzy.Game{saved: saved} = game, index) when index in 0..4 do
+    new_saved = List.update_at(saved, index fn val -> not val end)
+    %Yatzy.Game{game | saved: new_saved}
+  end
+
+  def no_rolls?(%Yatzy.Game{rolls_left: rolls_left}), do: rolls_left == 0
+
+  def reset(_game), do: new_game()
 end
